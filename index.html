@@ -1,23 +1,552 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+    <!-- Schema.org 구조화 데이터 (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "치과 레진 치료 서비스",
+      "description": "2026년 치과 레진 치료에 대한 완벽한 정보 제공 및 비용 상담 서비스입니다. 충치 치료, 치아 성형, 레진 인레이 등 다양한 레진 치료를 전문으로 합니다.",
+      "serviceType": "치과 레진 치료",
+      "provider": {
+        "@type": "MedicalOrganization",
+        "name": "OOO 치과",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "서울특별시 강남구 XXX로 XX",
+          "addressLocality": "강남구",
+          "addressRegion": "서울특별시",
+          "postalCode": "12345",
+          "addressCountry": "KR"
+        },
+        "telephone": "02-1234-5678",
+        "url": "https://www.example.com/dental-resin"
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "대한민국"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "레진 치료 서비스 유형",
+        "itemListElement": [
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"광중합형 레진 충전"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"레진 인레이/온레이"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"레진 직접수복"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"심미 레진 성형(치아 벌어짐, 깨짐)"}}
+        ]
+      }
+    }
+    </script>
+
+    <!-- FAQPage Schema for snippet optimization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "치과 레진 치료의 평균 가격은 얼마인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "레진 치료의 평균 가격은 치과마다, 충치 범위, 레진 종류에 따라 크게 달라집니다. 2026년 기준, 비급여 레진 치료는 보통 5만 원에서 15만 원 사이의 금액이 예상됩니다. 다만, 충치 범위가 넓은 인레이 치료의 경우 20만 원 이상으로 견적이 나옵니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "레진 치료 시 건강보험 적용을 받을 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "만 12세 이하의 아동 청소년은 충치 치료 시 레진 치료에 건강보험이 적용되어 저렴하게 치료받을 수 있습니다. 성인의 경우, 충치 부위에 따라 건강보험 적용 여부가 달라지며, 주로 광중합형 레진은 비급여 항목입니다. 정확한 보험 적용 여부는 치과 상담 시 확인해야 합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "레진의 장점과 단점은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "레진의 장점은 심미성이 뛰어나고, 치아 색상과 유사하여 티 나지 않는다는 점입니다. 또한, 치아 삭제량이 적어 건강한 치아 보존에 유리합니다. 단점으로는 상대적으로 강도가 약하여 큰 충치에는 적합하지 않을 수 있으며, 시간이 지나면서 변색되거나 떨어져 나갈 수 있다는 점입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "레진 인레이와 일반 레진 충전의 차이점은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "일반 레진 충전(직접 수복)은 치과 의사가 직접 충치 부위에 레진을 채워 넣는 방식입니다. 반면 레진 인레이(간접 수복)는 충치 부위가 넓어 본을 뜬 후 기공소에서 제작한 레진 조각을 접착하는 방식입니다. 인레이가 강도가 더 강하고 정교하지만, 비용이 더 비쌉니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="canonical" href="https://www.example.com/dental-resin">
+
+    <!-- 디자인 개선 CSS -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+        :root {
+            --primary-color: #0078D7; /* 파란색 계열 */
+            --secondary-color: #f0f8ff; /* 옅은 하늘색 배경 */
+            --light-bg: #f8f8f8; /* 섹션 배경 */
+            --border-color: #e0e0e0;
+            --text-color: #333;
+            --heading-color: #1a1a1a;
+            --accent-color: #00bcd4; /* 민트 계열 */
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.7;
+            background-color: #fff;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: var(--secondary-color);
+            padding: 40px 20px;
+            border-bottom: 2px solid var(--primary-color);
+            text-align: center;
+        }
+        header h1 {
+            color: var(--heading-color);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        header p {
+            font-size: 1.1em;
+            color: #555;
+        }
+        section {
+            padding: 40px 20px;
+            margin-bottom: 20px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        section:nth-child(even) {
+            background-color: #fff;
+        }
+        h2 {
+            font-size: 2em;
+            color: var(--primary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: var(--heading-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        ul, ol { padding-left: 20px; }
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: background .3s;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        .cta-button:hover {
+            background: #005a9e;
+        }
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .service-item {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform .3s;
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .service-item h4 {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+        table th, table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+        table th {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            text-align: center;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .faq .question {
+            cursor: pointer;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            transition: color .3s;
+        }
+        .faq .question:hover { color: var(--primary-color); }
+        .faq .answer {
+            padding: 15px;
+            background-color: #fefefe;
+            border-left: 3px solid var(--accent-color);
+            margin-top: 10px;
+        }
+        .internal-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .internal-links li {
+            margin-bottom: 8px;
+        }
+        .internal-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .form-section {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        .form-section input[type="text"], .form-section input[type="tel"], .form-section textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        .form-section button {
+            background: var(--accent-color);
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .review-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .review-card strong { color: var(--primary-color); }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        footer a { color: var(--accent-color); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 영역 -->
+    <header>
+        <div class="container">
+            <h1>치과 레진 가격 및 비용 2026년 완벽 분석</h1>
+            <p>2026년 최신 기준으로 <strong>치과 레진 가격</strong>의 <strong>평균 금액</strong>과 <strong>예상 비용</strong>을 상세히 안내합니다. <strong>보험 적용</strong> 여부부터 <strong>장점</strong>, <strong>단점</strong>, <strong>치과 비교</strong>, <strong>내돈내산 후기</strong>까지 모든 정보를 한눈에!</p>
+            <a href="#quote-request" class="cta-button">무료 견적 상담 받기</a>
+        </div>
+    </header>
+
+    <!-- 목차 및 자동완성 키워드 섹션 -->
+    <section class="container internal-links">
+        <h2>주요 정보 목차 및 핵심 키워드</h2>
+        <p>네이버 검색창에 "치과레진가격"을 검색했을 때 '함께 많이 찾는 키워드' 및 자동완성 키워드를 분석하여, 사용자들이 가장 궁금해하는 정보를 정리했습니다.</p>
+        <ul>
+            <li><a href="#cost-overview">레진 치료 평균 가격 및 비용 구조 분석</a></li>
+            <li><a href="#insurance-coverage">레진 건강보험 적용 기준 (2026년)</a></li>
+            <li><a href="#comparison">레진 장점, 단점 및 타 치료법과의 차이점 비교</a></li>
+            <li><a href="#types">레진 종류별 비용 및 특징 (직접 수복 vs 인레이)</a></li>
+            <li><a href="#selection-tips">치과 선택 및 저렴하게 치료받는 방법</a></li>
+            <li><a href="#reviews">실제 내돈내산 후기 및 주의사항</a></li>
+        </ul>
+        <h3>함께 많이 찾는 검색어:</h3>
+        <p>#레진가격 #치과레진비용 #충치치료비용 #레진보험적용 #레진장단점 #레진후기 #치과레진싼곳 #레진인레이가격 #레진치료 #레진치과 #레진평균금액 #레진견적 #레진비교 #레진재치료 #치아색충전재 #레진충치치료 #2026레진보험</p>
+    </section>
+
+    <!-- 레진 가격 개요 섹션 -->
+    <section class="container" id="cost-overview">
+        <h2>1. 치과 레진 가격의 평균 금액 및 비용 구조 분석</h2>
+        <p>치과 치료 중 가장 대중적인 충전 재료인 레진은 심미성과 기능성을 겸비하고 있어 선호도가 높습니다. 그러나 <strong>치과레진가격</strong>은 치과의 규모, 지역, 의사의 숙련도, 환자의 치아 상태 등 여러 요인에 의해 크게 달라집니다. 2026년 기준, 대한치과협회에서 발표한 비급여 진료비 평균 <strong>금액</strong> 데이터를 바탕으로 레진 치료의 <strong>평균 비용</strong>을 분석해 보았습니다.</p>
+        <p>레진 치료는 비급여 항목이 대부분이므로, <strong>저렴한곳</strong>을 찾는 것도 중요하지만, 치료의 질을 함께 고려하는 것이 바람직합니다. 단순히 싼곳만을 고집하다가 레진이 빨리 탈락하거나 2차 충치가 발생하여 재치료 비용이 더 많이 드는 경우가 발생할 수 있습니다. <strong>치과레진가격</strong>의 <strong>예상 비용</strong>을 파악하기 위해선 다음의 요소를 종합적으로 확인해야 합니다.</p>
+
+        <h3>레진 가격을 결정하는 주요 요인</h3>
+        <ol>
+            <li><strong>충치의 범위와 깊이:</strong> 충치의 크기가 작고 깊이가 얕을수록 <strong>레진 비용</strong>이 <strong>저렴</strong>하며, 충치 범위가 넓을수록 더 많은 재료와 시간이 소요되어 <strong>금액</strong>이 높아집니다. 깊은 충치는 신경 치료의 가능성도 있어 총 <strong>견적</strong>을 높입니다.</li>
+            <li><strong>치료 방식의 차이 (직접수복 vs 인레이):</strong> 치과에서 직접 충전하는 방식이 인레이(기공소 제작) 방식보다 <strong>가격</strong>이 <strong>저렴</strong>합니다. 인레이는 강도가 강하지만, 제작 과정이 복잡하여 <strong>비용</strong>이 더 듭니다.</li>
+            <li><strong>치과 위치 및 규모:</strong> 대형 치과병원이나 수도권 중심지의 치과는 상대적으로 <strong>가격</strong>대가 높을 수 있습니다. 일반 동네 치과와 비교하여 <strong>평균</strong>적인 <strong>비용</strong> 차이를 보입니다.</li>
+            <li><strong>레진 재료의 종류:</strong> 최근에는 심미성을 극대화한 고강도 레진, 지르코니아 강화 레진 등 다양한 종류의 레진 재료가 개발되어 있습니다. 재료 선택에 따라 <strong>비용</strong>이 달라질 수 있습니다.</li>
+        </ol>
+    </section>
+
+    <!-- 레진 보험 섹션 -->
+    <section class="container" id="insurance-coverage">
+        <h2>2. 레진 건강보험 적용 기준 및 2026년 업데이트 내용</h2>
+        <p>많은 분들이 <strong>치과레진가격</strong>에 대해 문의할 때 "보험이 되나요?"를 가장 많이 물어보십니다. 2026년 현재 레진 치료의 건강보험 적용 기준은 다음과 같습니다. 건강보험공단 정책에 따라 <strong>레진 보험</strong> 적용 대상이 한정되어 있으므로, <strong>가입</strong> 여부와 상관없이 적용 대상을 확인해야 합니다.</p>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>치과 레진 건강보험 적용 여부</th>
+                    <th>적용 기준 (2026년)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>만 12세 이하 소아</strong></td>
+                    <td><span style="color: green;">적용 (급여)</span></td>
+                    <td>영구치 충치 치료 시 보험 적용. 본인 부담금 10% 미만으로 <strong>저렴하게</strong> 치료 가능.</td>
+                </tr>
+                <tr>
+                    <td><strong>만 13세 이상 성인</strong></td>
+                    <td><span style="color: red;">비적용 (비급여)</span></td>
+                    <td>대부분의 레진 충치 치료는 비급여 항목. 심미 목적의 치료는 <strong>치과레진가격</strong> 전액 본인 부담.</td>
+                </tr>
+                <tr>
+                    <td><strong>특정 부위</strong></td>
+                    <td>부분 적용</td>
+                    <td>일부 치아 목 부분(치경부 마모증) 등 특수 케이스는 보험 적용 가능성이 있으나, 충치 치료는 비급여가 일반적입니다.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>참고:</strong> 건강보험심사평가원(HIRA)에서는 비급여 진료비를 공개하고 있습니다. <strong>치과레진가격</strong>의 <strong>평균 금액</strong>을 확인하려면 [비급여 진료비 정보] (<a href="https://www.hira.or.kr/" target="_blank">건강보험심사평가원 HIRA</a>)에서 찾아볼 수 있습니다. 또한, 국민건강보험공단 웹사이트 (<a href="https://www.nhis.or.kr/" target="_blank">국민건강보험공단</a>)를 통해 최신 보험 <strong>가입</strong> 및 적용 기준을 확인하는 것이 정확합니다.</p>
+
+        <h3>레진 치료 비용 절감을 위한 팁</h3>
+        <ul>
+            <li><strong>정기적인 검진:</strong> 충치가 작을 때 조기에 발견하면 <strong>치과레진가격</strong>이 <strong>저렴</strong>하며 치료도 간단합니다.</li>
+            <li><strong>실손보험 확인:</strong> 일부 실손보험은 충치 치료 비용을 보장해주기도 합니다. 보험 증권을 확인하여 <strong>가입</strong>된 내용을 점검해 보세요.</li>
+            <li><strong>치과 이벤트 활용:</strong> 일부 치과에서는 심미 레진 치료를 묶어 <strong>저렴한</strong> 패키지 <strong>견적</strong>을 제공하는 경우가 있습니다.</li>
+        </ul>
+    </section>
+
+    <!-- 레진 장단점 비교 섹션 -->
+    <section class="container" id="comparison">
+        <h2>3. 레진의 장점, 단점 및 타 치료법과의 차이점 비교</h2>
+        <p>치과레진가격뿐만 아니라 레진 치료 자체의 특성을 이해하는 것이 중요합니다. 레진은 다른 충전재(아말감, 금 인레이, 세라믹 인레이)와 비교했을 때 명확한 <strong>장점</strong>과 <strong>단점</strong>이 존재합니다. 다음 표를 통해 <strong>레진</strong>과 <strong>아말감</strong>, <strong>인레이</strong>의 <strong>차이점</strong>을 비교하여 본인에게 맞는 치료법을 선택해 보세요.</p>
+
+        <h3>레진 치료의 주요 장단점 분석</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>장점 (Pros)</th>
+                    <th>단점 (Cons)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>심미성:</strong> 치아 색상과 유사하여 치료한 티가 거의 나지 않습니다. 앞니와 같이 눈에 잘 띄는 부위에 적합합니다.</td>
+                    <td><strong>강도/내구성:</strong> 금이나 세라믹에 비해 상대적으로 강도가 약합니다. 씹는 힘이 강한 어금니 깊은 충치에는 적합하지 않을 수 있습니다.</td>
+                </tr>
+                <tr>
+                    <td><strong>치아 보존:</strong> 충치 부위만 최소한으로 삭제하고 치료할 수 있어 건강한 치아 구조를 보존합니다.</td>
+                    <td><strong>변색 및 탈락:</strong> 시간이 지나면서 커피, 흡연 등에 의해 변색되거나, 접착력이 약해져 떨어져 나갈 수 있습니다. (재치료 필요)</td>
+                </tr>
+                <tr>
+                    <td><strong>치료 편의성:</strong> 당일 치료가 가능하며, 인레이처럼 본을 뜨고 제작하는 과정이 없습니다.</td>
+                    <td><strong>기술 난이도:</strong> 치과 의사의 숙련도에 따라 결과가 크게 달라집니다. 습기에 취약하여 접착 과정에서 세심한 기술이 필요합니다.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>레진 vs 아말감 vs 인레이 비용 및 특징 비교</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>레진 (Resin)</th>
+                    <th>아말감 (Amalgam)</th>
+                    <th>인레이 (Inlay)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>주요 특징</strong></td>
+                    <td>심미성 우수, 치아 색상, 치아 보존</td>
+                    <td>보험 적용, 내구성 강함, 은색</td>
+                    <td>강도 최상, 정교한 제작, 세라믹/골드 선택</td>
+                </tr>
+                <tr>
+                    <td><strong>가격대 (평균)</strong></td>
+                    <td>5만 ~ 15만 (비급여)</td>
+                    <td>1만 ~ 2만 (급여)</td>
+                    <td>20만 ~ 40만 (비급여)</td>
+                </tr>
+                <tr>
+                    <td><strong>장점</strong></td>
+                    <td>심미적, 치아 삭제량 적음, 당일 치료 가능</td>
+                    <td>저렴함, 강도 우수, 보험 적용</td>
+                    <td>강도/내구성 최상, 정교함, 변색 없음 (골드)</td>
+                </tr>
+                <tr>
+                    <td><strong>단점</strong></td>
+                    <td>변색, 내구성 약함, 비보험 (성인)</td>
+                    <td>심미성 낮음, 수은 논란, 2차 충치 확인 어려움</td>
+                    <td>비용 높음, 2회 내원 필요, 치아 삭제 많음</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 레진 종류별 심화 분석 섹션 -->
+    <section class="container" id="types">
+        <h2>4. 레진의 종류별 비용 및 특징 (직접 수복 vs 인레이)</h2>
+        <p><strong>치과레진가격</strong>은 레진을 사용하는 방식에 따라 크게 두 가지로 나뉩니다. 치과 의사가 직접 충전하는 방식과 기공소에서 제작하는 인레이 방식입니다. <strong>예상 비용</strong>을 파악할 때 이 <strong>차이점</strong>을 이해하는 것이 중요합니다.</p>
+
+        <h3>직접 레진 충전 (Direct Filling)</h3>
+        <p>작은 충치나 치아 앞면의 심미적인 수복에 주로 사용됩니다. 치과 의사가 충치가 있는 부위에 레진을 직접 채워 넣고 광중합기를 이용해 굳히는 방식입니다. 일반적으로 <strong>가격</strong>이 가장 <strong>저렴</strong>하며, 충치 범위가 작은 경우 5만 원에서 10만 원 사이로 <strong>견적</strong>이 나옵니다. <strong>장점</strong>은 당일 치료가 가능하고 치아 삭제량이 적다는 점이며, <strong>단점</strong>은 큰 충치에는 적용하기 어렵고 강도가 약하다는 점입니다.</p>
+
+        <h3>레진 인레이/온레이 (Resin Inlay/Onlay)</h3>
+        <p>충치 범위가 넓어 일반적인 직접 수복으로는 강도를 확보하기 어려울 때 사용합니다. 충치가 제거된 치아 본을 떠서 기공소에 보냅니다. 기공소에서 레진을 단단하게 제작하여 치과에 가져오면 접착제로 붙입니다. <strong>가격</strong>은 일반 레진보다 비싸며, 보통 20만 원에서 30만 원 사이의 <strong>금액</strong>이 <strong>예상</strong>됩니다. <strong>장점</strong>은 강도가 강하고 정교하며, 씹는 힘을 잘 견딘다는 점입니다. <strong>단점</strong>은 2회 이상 내원해야 하고, <strong>비용</strong>이 비싸다는 점입니다.</p>
+    </section>
+
+    <!-- 치과 선택 및 후기 섹션 -->
+    <section class="container" id="selection-tips">
+        <h2>5. 합리적인 레진 치료를 위한 치과 선택 및 팁</h2>
+        <p><strong>치과레진가격</strong>이 천차만별이므로 <strong>저렴한곳</strong>을 찾는 것도 중요하지만, 치료의 질을 최우선으로 고려해야 합니다. 레진 치료는 의사의 숙련도에 따라 결과가 크게 달라지기 때문입니다. <strong>내돈내산 후기</strong>를 참고하거나 다음 기준을 활용하여 현명하게 치과를 선택하세요.</p>
+
+        <h3>치과 선택 시 확인해야 할 사항</h3>
+        <ol>
+            <li><strong>정확한 진단:</strong> 충치의 범위, 신경 침범 여부 등을 꼼꼼하게 진단하는지 확인하세요. 과도한 치료를 권유하는지 여부를 판단해야 합니다.</li>
+            <li><strong>의사의 숙련도:</strong> 레진 접착 시 습기 조절과 충전 기술이 중요합니다. 숙련된 의사가 있는 치과를 선택하는 것이 재치료 위험을 줄입니다.</li>
+            <li><strong>레진 재료 품질:</strong> 사용하는 레진 재료의 종류와 품질을 확인하세요. 고강도 레진을 사용하는지, 치아 색상이 잘 맞는지 등입니다.</li>
+            <li><strong>사후 관리:</strong> 레진 치료 후 정기적인 검진을 통해 2차 충치를 예방하는 사후 관리 시스템이 있는지 확인해야 합니다.</li>
+        </ol>
+
+        <h3>내돈내산 후기 및 주의사항</h3>
+        <p>온라인 커뮤니티나 블로그에서 <strong>내돈내산 후기</strong>를 살펴보면 <strong>치과레진가격</strong>에 대한 현실적인 정보를 얻을 수 있습니다. 후기를 통해 특정 치과의 장단점과 <strong>비용</strong>을 <strong>비교</strong>해 볼 수 있습니다. 다만, 후기가 광고성인지 아닌지 판단하는 것이 중요합니다. 너무 <strong>저렴한</strong> 가격만을 강조하는 곳은 피하는 것이 좋습니다.</p>
+        <div class="review-card">
+            <h4>"레진 치료 후 2년 경과 후기 (내돈내산)"</h4>
+            <p><strong>치과레진가격</strong>이 <strong>평균 금액</strong>보다 조금 비쌌지만, 꼼꼼하게 치료해주는 치과를 선택했어요. <br>2년이 지났는데 아직까지 변색이나 탈락 없이 잘 사용하고 있습니다. <br>레진은 의사 실력에 따라 수명이 달라진다고 하니, <strong>싼곳</strong>만 찾기보다는 <strong>추천</strong> 후기를 참고해서 선택하세요.</p>
+            <p><strong>- 김OO (2026. 01. 15)</strong></p>
+        </div>
+        <div class="review-card">
+            <h4>"레진 인레이와 일반 레진의 차이점 경험 후기"</h4>
+            <p>어금니 충치가 깊어 일반 레진 대신 레진 인레이로 진행했습니다. <br><strong>비용</strong>은 <strong>예상 금액</strong>보다 높았지만, 씹는 느낌이 확실히 강하고 안정적이네요. <br><strong>치과레진가격</strong> <strong>견적</strong>을 받을 때 충치 범위에 따라 인레이를 <strong>추천</strong>받는 경우가 있으니 참고하세요.</p>
+            <p><strong>- 박OO (2026. 02. 03)</strong></p>
+        </div>
+    </section>
+
+    <!-- 외부 신뢰도 링크 및 정보 섹션 -->
+    <section class="container" id="external-info">
+        <h2>6. 공인된 외부 사이트 정보 및 전문가 견해</h2>
+        <p><strong>치과레진가격</strong> 및 치료에 대한 전문적인 정보는 공신력 있는 기관의 자료를 참고하는 것이 좋습니다. 다음은 치과 치료 관련 신뢰할 수 있는 외부 사이트 목록입니다.</p>
+        <ul>
+            <li><a href="https://namu.wiki/w/%EC%B9%98%EA%B3%BC%EB%A0%88%EC%A7%84" target="_blank">나무위키: 치과 레진</a> - 레진의 역사, 성분, 다양한 장단점을 폭넓게 설명합니다.</li>
+            <li><a href="https://www.hira.or.kr/" target="_blank">건강보험심사평가원 (HIRA)</a> - 비급여 진료비 <strong>평균 금액</strong> 및 보험 적용 기준을 공식적으로 확인할 수 있습니다.</li>
+            <li><a href="http://www.kda.or.kr/" target="_blank">대한치과의사협회 (KDA)</a> - 치과 치료에 대한 전문적인 정보와 가이드라인을 제공합니다.</li>
+            <li><a href="https://www.mohw.go.kr/react/index.jsp" target="_blank">보건복지부 (Ministry of Health and Welfare)</a> - 국가 건강 정책 및 치과 관련 급여/비급여 정책을 확인할 수 있습니다.</li>
+            <li><a href="https://terms.naver.com/" target="_blank">네이버 지식백과 - 레진 충전</a> - 레진 충전의 정의, 과정, 주의사항 등을 확인할 수 있습니다.</li>
+        </ul>
+    </section>
+
+    <!-- FAQ 섹션 -->
+    <section class="container faq">
+        <h2>자주 묻는 질문 (FAQ) - 레진 치료 Q&A</h2>
+        <p>치과레진가격과 관련하여 고객들이 가장 많이 묻는 질문들을 모았습니다. <strong>레진 견적</strong> 문의 전 확인해 보세요.</p>
+        
+        <div class="faq-item">
+            <h3 class="question">Q1: 치과 레진 치료의 평균 가격은 얼마인가요?</h3>
+            <div class="answer" style="display:none;">
+                A: 2026년 기준, <strong>치과레진가격</strong>은 치과의 규모와 충치 범위에 따라 다르지만, 일반적으로 개당 5만 원에서 15만 원 사이의 <strong>금액</strong>이 <strong>예상</strong>됩니다. 인레이 방식은 20만 원 이상으로 <strong>비용</strong>이 더 높습니다. 정확한 <strong>견적</strong>은 치과 상담 시 확인해야 합니다.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <h3 class="question">Q2: 레진 치료에 건강보험이 적용되나요?</h3>
+            <div class="answer" style="display:none;">
+                A: 만 12세 이하의 아동 청소년의 영구치 충치 치료는 보험이 적용됩니다. 성인의 경우, 대부분의 충치 레진 치료는 비급여 항목입니다. <strong>레진 보험 적용</strong> 여부는 반드시 치과 방문 시 확인해야 합니다.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <h3 class="question">Q3: 레진의 수명은 얼마나 되나요?</h3>
+            <div class="answer" style="display:none;">
+                A: 레진은 평균 5~10년 정도 사용 가능하지만, 구강 위생 관리, 식습관, 치아 물림 상태(교합력), <strong>치과 의사의 숙련도</strong>에 따라 수명이 달라집니다. 정기적인 검진이 중요합니다.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <h3 class="question">Q4: 레진 인레이와 일반 레진의 차이점은 무엇인가요?</h3>
+            <div class="answer" style="display:none;">
+                A: 일반 레진은 충치가 작은 경우에 치과에서 직접 채우는 방식(직접수복)입니다. 레진 인레이는 충치가 넓어 강도가 필요할 때 본을 떠서 제작하는 방식(간접수복)입니다. 인레이가 <strong>비용</strong>이 더 비싸지만, 내구성이 뛰어납니다.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="question">Q5: 레진 치료 시 <strong>장점</strong>과 <strong>단점</strong>은 무엇인가요?</h3>
+            <div class="answer" style="display:none;">
+                A: <strong>장점</strong>은 치아 색상과 유사하여 심미성이 뛰어나고, 치아 삭제량을 최소화할 수 있다는 점입니다. <strong>단점</strong>은 금이나 세라믹에 비해 내구성이 약하고, 시간이 지나면 변색되거나 떨어져 나갈 수 있어 재치료가 필요할 수 있다는 점입니다.
+            </div>
+        </div>
+    </section>
+
+    <!-- 상담 신청 및 연락처 섹션 -->
+    <section class="container form-section" id="quote-request">
+        <h2>실시간 레진 치료 예상 비용 견적 및 상담 신청</h2>
+        <p>치아 상태에 따른 정확한 <strong>치과레진가격</strong> <strong>견적</strong>을 받아보세요. 꼼꼼한 상담을 통해 합리적인 <strong>비용</strong>을 안내해 드립니다.</p>
+        <form action="/submit-quote" method="post">
+            <p><label for="name">이름</label><br><input type="text" id="name" name="name" required></p>
+            <p><label for="phone">연락처</label><br><input type="tel" id="phone" name="phone" required></p>
+            <p><label for="age">나이 (만 12세 이하 보험 적용 대상 확인)</label><br><input type="text" id="age" name="age" placeholder="예: 30대" required></p>
+            <p><label for="details">치료 희망 내용 (충치 개수, 위치 등 상세히 입력해주세요)</label><br><textarea id="details" name="details" rows="5" required></textarea></p>
+            <p><label for="agreement"><input type="checkbox" id="agreement" name="agreement" required> 개인정보 수집 및 이용에 동의합니다.</label></p>
+            <button type="submit">무료 견적 요청하기</button>
+        </form>
+    </section>
+
+    <!-- 자바스크립트 (FAQ 토글 기능) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-item .question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = answer.style.display === 'block';
+                    // 모든 답변 닫기
+                    document.querySelectorAll('.faq-item .answer').forEach(ans => ans.style.display = 'none');
+                    // 현재 답변 열기/닫기
+                    answer.style.display = isExpanded ? 'none' : 'block';
+                });
+            });
+        });
+    </script>
+
+
+  
